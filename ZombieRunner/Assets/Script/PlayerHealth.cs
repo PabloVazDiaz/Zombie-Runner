@@ -6,8 +6,13 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints = 100;
+    [SerializeField] Canvas gameOverCanvas;
 
-    
+    private void Start()
+    {
+        gameOverCanvas.enabled = false;
+    }
+
     public void TakeDamage( float damage)
     {
         hitPoints -= damage;
@@ -19,6 +24,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        gameOverCanvas.enabled = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0;
         print("You dead");
     }
 }

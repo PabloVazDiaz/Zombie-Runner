@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] float damage = 30f;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitEffect;
+    [SerializeField] Ammo ammoSlot;
 
 
     // Start is called before the first frame update
@@ -23,7 +24,10 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            if (ammoSlot.GetCurrentAmmo() > 0)
+            {
+                Shoot();
+            }
         }
     }
 
@@ -31,6 +35,7 @@ public class Weapon : MonoBehaviour
     {
         PlayMuzzleEffect();
         ProcessRaycast();
+        ammoSlot.ReduceCurrentAmmo();
     }
 
     private void PlayMuzzleEffect()

@@ -56,6 +56,11 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+    public void OnDamageTaken()
+    {
+        isProvoked = true;
+    }
+
     private void ChaseTarget()
     {
         navMeshAgent.SetDestination(target.position);
