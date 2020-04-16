@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
         gameOverCanvas.enabled = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        FindObjectOfType<WeaponsSwitcher>().enabled = false;
         Time.timeScale = 0;
         print("You dead");
     }

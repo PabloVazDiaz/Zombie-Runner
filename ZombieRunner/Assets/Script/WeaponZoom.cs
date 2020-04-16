@@ -11,15 +11,15 @@ public class WeaponZoom : MonoBehaviour
     [SerializeField] float zoomedMouseSensitivity = 1f;
 
 
-    bool isZoomend = false;
+    bool isZoomed = false;
     Camera FPCamera;
     UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController FPSController;
 
     // Start is called before the first frame update
     void Start()
     {
-        FPCamera = GetComponentInChildren<Camera>();
-        FPSController = GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>();
+        FPCamera = GetComponentInParent<Camera>();
+        FPSController = GetComponentInParent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>();
     }
 
     private void Update()
@@ -30,9 +30,14 @@ public class WeaponZoom : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        if (isZoomed)
+            ChangeZoom();
+    }
     private void ChangeZoom()
     {
-        if (isZoomend)
+        if (isZoomed)
         {
             FPCamera.fieldOfView = normalFOV;
             FPSController.mouseLook.XSensitivity = normalMouseSensitivity;
@@ -44,7 +49,7 @@ public class WeaponZoom : MonoBehaviour
             FPSController.mouseLook.XSensitivity = zoomedMouseSensitivity;
             FPSController.mouseLook.YSensitivity = zoomedMouseSensitivity;
         }
-        isZoomend = !isZoomend;
+        isZoomed = !isZoomed;
     }
 
 }

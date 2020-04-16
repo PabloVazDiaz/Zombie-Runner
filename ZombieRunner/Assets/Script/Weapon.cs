@@ -8,15 +8,20 @@ public class Weapon : MonoBehaviour
     [SerializeField] Camera FPCamera;
     [SerializeField] float range = 100f;
     [SerializeField] float damage = 30f;
+    [SerializeField] float fireRate;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitEffect;
     [SerializeField] Ammo ammoSlot;
+    [SerializeField] AmmoType ammoType;
+
+
+    private bool isAbleToShoot = true;
 
 
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        
+        isAbleToShoot = true;
     }
 
     // Update is called once per frame
@@ -24,7 +29,7 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (ammoSlot.GetCurrentAmmo() > 0)
+            if (ammoSlot.GetCurrentAmmo(ammoType) > 0 && isAbleToShoot)
             {
                 Shoot();
             }
@@ -35,7 +40,15 @@ public class Weapon : MonoBehaviour
     {
         PlayMuzzleEffect();
         ProcessRaycast();
-        ammoSlot.ReduceCurrentAmmo();
+        ammoSlot.ReduceCurrentAmmo(ammoType);
+        StartCoroutine(ShootCooldown());
+    }
+
+    private IEnumerator ShootCooldown()
+    {
+        isAbleToShoot = false;
+        yield return new WaitForSeconds(fireRate);
+        isAbleToShoot = true;
     }
 
     private void PlayMuzzleEffect()

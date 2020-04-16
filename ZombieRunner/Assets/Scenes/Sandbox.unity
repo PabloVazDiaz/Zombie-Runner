@@ -1433,6 +1433,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1853968030, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+      propertyPath: gameOverCanvas
+      value: 
+      objectReference: {fileID: 320716606}
+    - target: {fileID: 1853968032, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+      propertyPath: ammoSlots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853968032, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+      propertyPath: ammoSlots.Array.data[1].ammoType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853968032, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+      propertyPath: ammoSlots.Array.data[2].ammoType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853968032, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+      propertyPath: ammoSlots.Array.data[0].ammoAmount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853968032, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+      propertyPath: ammoSlots.Array.data[1].ammoAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853968032, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
+      propertyPath: ammoSlots.Array.data[2].ammoAmount
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
 --- !u!1 &1524274627
@@ -2419,7 +2447,27 @@ PrefabInstance:
     - target: {fileID: 3950803587284254440, guid: 49dbedac8d299f044b535f66f7b6f5a3,
         type: 3}
       propertyPath: turnSpeed
-      value: 2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950803587284254440, guid: 49dbedac8d299f044b535f66f7b6f5a3,
+        type: 3}
+      propertyPath: chaseRange
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950803587284254455, guid: 49dbedac8d299f044b535f66f7b6f5a3,
+        type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950803587284254455, guid: 49dbedac8d299f044b535f66f7b6f5a3,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067256155060277535, guid: 49dbedac8d299f044b535f66f7b6f5a3,
+        type: 3}
+      propertyPath: damage
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49dbedac8d299f044b535f66f7b6f5a3, type: 3}
