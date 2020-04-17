@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -13,6 +14,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject hitEffect;
     [SerializeField] Ammo ammoSlot;
     [SerializeField] AmmoType ammoType;
+    [SerializeField] TextMeshProUGUI ammoText;
 
 
     private bool isAbleToShoot = true;
@@ -27,6 +29,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ammoText.text = ammoSlot.GetCurrentAmmo(ammoType).ToString();
         if (Input.GetMouseButtonDown(0))
         {
             if (ammoSlot.GetCurrentAmmo(ammoType) > 0 && isAbleToShoot)

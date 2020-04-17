@@ -20,6 +20,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        GetComponent<Animator>().SetTrigger("Die");
+        GetComponent<EnemyAI>().enabled = false;
+        this.enabled = false;
+        //Destroy(gameObject);
     }
 }
