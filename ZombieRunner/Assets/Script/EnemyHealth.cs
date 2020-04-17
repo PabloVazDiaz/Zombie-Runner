@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger("Die");
         GetComponent<EnemyAI>().enabled = false;
-        this.enabled = false;
-        //Destroy(gameObject);
+        enabled = false;
+        Destroy(this);
     }
 }
